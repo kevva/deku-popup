@@ -1,6 +1,6 @@
 /** @jsx dom */
+import clickOutside from 'click-outside';
 import dom from 'magic-virtual-element';
-import objectAssign from 'object-assign';
 
 const propTypes = {
 	open: {
@@ -16,18 +16,14 @@ function afterMount({props}, el, setState) {
 		setState({open: true});
 	}
 
-	if (window) {
-		require('click-outside')(popup, () => setState({open: false}));
-	}
+	clickOutside(popup, () => setState({open: false}));
 }
 
 function afterRender(component, el) {
 	const popup = el.children[0];
 
-	objectAssign(popup.style, {
-		marginLeft: `-${(popup.offsetWidth / 2)}px`,
-		marginTop: `-${(popup.offsetHeight / 2)}px`
-	});
+	popup.style.marginLeft = `-${(popup.offsetWidth / 2)}px`;
+	popup.style.marginTop = `-${(popup.offsetHeight / 2)}px`;
 }
 
 function afterUpdate({props}, prevProps, prevState, setState) {
