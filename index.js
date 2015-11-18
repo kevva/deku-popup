@@ -31,8 +31,6 @@ function afterRender(component, el) {
 }
 
 function afterUpdate({props}, prevProps, prevState, setState) {
-	console.log(props, prevProps);
-
 	if (!props.open && (prevProps.open || prevState.open)) {
 		setState({open: false});
 	}

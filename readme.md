@@ -1,4 +1,4 @@
-# deku-popup [![Build Status](https://travis-ci.org/kevva/deku-popup.svg?branch=master)](https://travis-ci.org/kevva/deku-popup)
+# deku-popup
 
 > Popup/modal component for deku
 
