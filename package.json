@@ -29,8 +29,7 @@
   ],
   "dependencies": {
     "click-outside": "^1.0.4",
-    "magic-virtual-element": "^1.0.6",
-    "object-assign": "^4.0.1"
+    "magic-virtual-element": "^1.0.6"
   },
   "devDependencies": {
     "babel-cli": "^6.1.18",
@@ -57,10 +56,6 @@
     ]
   },
   "xo": {
-    "envs": [
-      "browser",
-      "node"
-    ],
     "esnext": true,
     "extends": [
       "xo-react"
