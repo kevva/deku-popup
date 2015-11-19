@@ -25,7 +25,7 @@ const App = {
 			</div>
 		);
 	}
-}
+};
 
 const app = tree(<App/>);
 render(app, document.body);

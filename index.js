@@ -3,20 +3,25 @@ import clickOutside from 'click-outside';
 import dom from 'magic-virtual-element';
 
 const propTypes = {
+	onClickOutside: {
+		type: 'function'
+	},
 	open: {
 		type: 'boolean'
 	}
 };
 
-function afterMount({props}, el, setState) {
-	const {open} = props;
+function afterMount({props, state}, el, setState) {
+	const {open, onClickOutside} = props;
 	const popup = el.children[0];
 
 	if (open) {
 		setState({open: true});
 	}
 
-	clickOutside(popup, () => setState({open: false}));
+	if (onClickOutside) {
+		clickOutside(popup, onClickOutside);
+	}
 }
 
 function afterRender(component, el) {
