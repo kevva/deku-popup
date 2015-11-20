@@ -24,13 +24,6 @@ function afterMount({props, state}, el, setState) {
 	}
 }
 
-function afterRender(component, el) {
-	const popup = el.children[0];
-
-	popup.style.marginLeft = `-${(popup.offsetWidth / 2)}px`;
-	popup.style.marginTop = `-${(popup.offsetHeight / 2)}px`;
-}
-
 function afterUpdate({props}, prevProps, prevState, setState) {
 	if (!props.open && (prevProps.open || prevState.open)) {
 		setState({open: false});
@@ -69,7 +62,9 @@ function render({props, state}) {
 	const popupCss = {
 		position: 'fixed',
 		top: '50%',
-		left: '50%'
+		left: '50%',
+		'-webkit-transform': 'translate(-50%, -50%)',
+		transform: 'translate(-50%, -50%)'
 	};
 
 	return (
@@ -81,4 +76,4 @@ function render({props, state}) {
 	);
 }
 
-export default {afterMount, afterRender, afterUpdate, propTypes, render};
+export default {afterMount, afterUpdate, propTypes, render};
