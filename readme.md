@@ -15,20 +15,22 @@ $ npm install --save deku-popup
 ```js
 import Popup from 'deku-popup';
 
-export function render({state}, setState) {
+const openPopup = (setState) => {
+	setState({open: true});
+};
+
+const render = ({state}, setState) => {
 	const {open} = state;
 
-	function openPopup() {
-		setState({open: true});
-	}
-
 	return (
-		<Button onClick={openPopup}>Open popup!</Button>
+		<Button onClick={openPopup(setState)}>Open popup!</Button>
 		<Popup open={open}>
 			<h1>Hello world!</h1>
 		</Popup>
 	);
-}
+};
+
+export default {render};
 ```
 
 

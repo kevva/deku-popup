@@ -11,7 +11,7 @@ const propTypes = {
 	}
 };
 
-function afterMount({props, state}, el, setState) {
+const afterMount = ({props, state}, el, setState) => {
 	const {open, onClickOutside} = props;
 	const popup = el.children[0];
 
@@ -22,9 +22,9 @@ function afterMount({props, state}, el, setState) {
 	if (onClickOutside) {
 		clickOutside(popup, onClickOutside);
 	}
-}
+};
 
-function afterUpdate({props}, prevProps, prevState, setState) {
+const afterUpdate = ({props}, prevProps, prevState, setState) => {
 	if (!props.open && (prevProps.open || prevState.open)) {
 		setState({open: false});
 	}
@@ -32,9 +32,9 @@ function afterUpdate({props}, prevProps, prevState, setState) {
 	if (props.open && (!prevProps.open || !prevState.open)) {
 		setState({open: true});
 	}
-}
+};
 
-function render({props, state}) {
+const render = ({props, state}) => {
 	const {children} = props;
 	const {open} = state;
 	const overlayClasses = {
@@ -74,6 +74,6 @@ function render({props, state}) {
 			</div>
 		</div>
 	);
-}
+};
 
 export default {afterMount, afterUpdate, propTypes, render};

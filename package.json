@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "browserify example/index.js -o example/build.js -dv",
-    "prepublish": "babel  --presets es2015,react index.js --out-file dist.js",
+    "prepublish": "babel  --presets es2015,react --out-file dist.js index.js",
     "test": "xo"
   },
   "main": "dist.js",

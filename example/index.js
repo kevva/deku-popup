@@ -1,31 +1,31 @@
 /** @jsx dom */
 import dom from 'magic-virtual-element';
-import {render, tree} from 'deku';
+import {render as r, tree} from 'deku';
 import Popup from '../';
 
-const App = {
-	render({state}, setState) {
-		const {open} = state;
-
-		function openPopup() {
-			setState({open: true});
-		}
-
-		function closePopup() {
-			setState({open: false});
-		}
-
-		return (
-			<div>
-				<button onClick={openPopup}>Open popup!</button>
-				<Popup open={open}>
-					<h1>Hello world!</h1>
-					<button onClick={closePopup}>Close popup!</button>
-				</Popup>
-			</div>
-		);
-	}
+const openPopup = (setState) => {
+	setState({open: true});
 };
 
+const closePopup = (setState) => {
+	setState({open: false});
+};
+
+const render = ({state}, setState) => {
+	const {open} = state;
+
+	return (
+		<div>
+			<button onClick={openPopup(setState)}>Open popup!</button>
+			<Popup open={open}>
+				<h1>Hello world!</h1>
+				<button onClick={closePopup(setState)}>Close popup!</button>
+			</Popup>
+		</div>
+	);
+};
+
+const App = {render};
 const app = tree(<App/>);
-render(app, document.body);
+
+r(app, document.body);
