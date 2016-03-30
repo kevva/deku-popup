@@ -69,7 +69,7 @@ const render = ({props, state}) => {
 
 	return (
 		<div class={overlayClasses} style={overlayCss}>
-			<div class={popupClasses} style={popupCss}>
+			<div class={[popupClasses, props.class]} style={popupCss}>
 				{children}
 			</div>
 		</div>
