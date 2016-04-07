@@ -29,7 +29,6 @@
     "popup"
   ],
   "dependencies": {
-    "click-outside": "^1.0.4",
     "magic-virtual-element": "^1.0.6"
   },
   "devDependencies": {
