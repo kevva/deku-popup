@@ -1,5 +1,4 @@
 /** @jsx dom */
-import clickOutside from 'click-outside';
 import dom from 'magic-virtual-element';
 
 const propTypes = {
@@ -11,16 +10,13 @@ const propTypes = {
 	}
 };
 
+const handleClickOutside = onClickOutside => e => e.delegateTarget === e.target && onClickOutside();
+
 const afterMount = ({props, state}, el, setState) => {
-	const {open, onClickOutside} = props;
-	const popup = el.children[0];
+	const {open} = props;
 
 	if (open) {
 		setState({open: true});
-	}
-
-	if (onClickOutside) {
-		clickOutside(popup, onClickOutside);
 	}
 };
 
@@ -35,7 +31,7 @@ const afterUpdate = ({props}, prevProps, prevState, setState) => {
 };
 
 const render = ({props, state}) => {
-	const {children} = props;
+	const {children, onClickOutside} = props;
 	const {open} = state;
 	const overlayClasses = {
 		Overlay: true,
@@ -68,7 +64,7 @@ const render = ({props, state}) => {
 	};
 
 	return (
-		<div class={overlayClasses} style={overlayCss}>
+		<div class={overlayClasses} style={overlayCss} onClick={handleClickOutside(onClickOutside)}>
 			<div class={[popupClasses, props.class]} style={popupCss}>
 				{children}
 			</div>
