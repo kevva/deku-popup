@@ -10,7 +10,7 @@ const propTypes = {
 	}
 };
 
-const handleClickOutside = onClickOutside => e => e.delegateTarget === e.target && onClickOutside();
+const handleClickOutside = onClickOutside => e => onClickOutside && e.delegateTarget === e.target && onClickOutside();
 
 const afterMount = ({props, state}, el, setState) => {
 	const {open} = props;
