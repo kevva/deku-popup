@@ -6,7 +6,7 @@
 ## Install
 
 ```
-$ npm install --save deku-popup
+$ npm install deku-popup
 ```
 
 
@@ -15,25 +15,41 @@ $ npm install --save deku-popup
 ```js
 import Popup from 'deku-popup';
 
-const openPopup = (setState) => {
+const openPopup = setState => {
 	setState({open: true});
 };
 
-const render = ({state}, setState) => {
-	const {open} = state;
-
-	return (
+const render = ({state}, setState) => (
+	<div>
 		<Button onClick={openPopup(setState)}>Open popup!</Button>
-		<Popup open={open}>
+		<Popup open={state.open}>
 			<h1>Hello world!</h1>
 		</Popup>
-	);
-};
+	</div>
+);
 
 export default {render};
 ```
 
 
+## API
+
+### &lt;Popup/&gt;
+
+#### onClickOutside
+
+Type: `Function`
+
+Function to call when clicking outside the popup.
+
+#### open
+
+Type: `boolean`<br>
+Default: `false`
+
+Whether to show the popup upon the initial render.
+
+
 ## License
 
-MIT © [Kevin Martensson](http://github.com/kevva)
+MIT © [Kevin Mårtensson](https://github.com/kevva)
