@@ -1,6 +1,6 @@
-# deku-popup
+# deku-popup [![Build Status](https://travis-ci.org/kevva/deku-popup.svg?branch=master)](https://travis-ci.org/kevva/deku-popup)
 
-> Popup/modal component for deku
+> Popup/modal component for [Deku](https://github.com/dekujs/deku)
 
 
 ## Install
